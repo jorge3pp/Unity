@@ -37,17 +37,12 @@ public class PlayerController : MonoBehaviour {
 	// Each physics step..
 	void FixedUpdate ()
 	{
-        // Set some local float variables equal to the value of our Horizontal and Vertical Inputs
-        float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
+        var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
 
-        // Create a Vector3 variable, and assign X and Z to feature our horizontal and vertical float variables above
-        Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-
-        // Add a physical force to our Player rigidbody using our 'movement' Vector3 above, 
-        // multiplying it by 'speed' - our public player speed that appears in the inspector
-        rb.AddForce (movement * speed);
-	}
+        transform.Rotate(0, x, 0);
+        transform.Translate(0, 0, z);
+    }
 
 	// When this game object intersects a collider with 'is trigger' checked, 
 	// store a reference to that collider in a variable named 'other'..
@@ -64,11 +59,29 @@ public class PlayerController : MonoBehaviour {
 
 			// Run the 'SetCountText()' function (see below)
 			SetCountText ();
-		}
-	}
+        }
 
-	// Create a standalone function that can update the 'countText' UI and check if the required amount to win has been achieved
-	void SetCountText()
+        if (other.gameObject.CompareTag("Ball"))
+        {
+            // Set the text value of our 'winText'
+            winText.text = "You Lost!";
+            float tiempo = Time.realtimeSinceStartup;
+            timeText.text = "Time: " + tiempo + " seconds";
+        }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            // Set the text value of our 'winText'
+            winText.text = "You Lost!";
+            float tiempo = Time.realtimeSinceStartup;
+            timeText.text = "Time: " + tiempo + " seconds";
+        }
+    }
+
+    // Create a standalone function that can update the 'countText' UI and check if the required amount to win has been achieved
+    void SetCountText()
 	{
 		// Update the text field of our 'countText' variable
 		countText.text = "Counts: " + count.ToString ();

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,11 @@ public class SquisherController : MonoBehaviour {
     public GameObject ballPrefab;
     public Transform ballSpawn;
 
+    public float fireRate;
+
+    private float nextFire;
+
+
 
     // Create private references to the rigidbody component on the player, and the count of pick up objects picked up so far
     private Rigidbody rb;
@@ -19,7 +25,10 @@ public class SquisherController : MonoBehaviour {
     {
         // Assign the Rigidbody component to our private rb variable
         rb = GetComponent<Rigidbody>();
-
+        nextFire = 0.0f;
+        
+        //Fire cadence
+        fireRate = 1.0f;
     }
 
     // Each physics step..
@@ -29,15 +38,20 @@ public class SquisherController : MonoBehaviour {
         float moveHorizontal = Input.GetAxis("HorizontalP2");
         float moveVertical = Input.GetAxis("VerticalP2");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time>nextFire)
         {
+            nextFire = Time.time + fireRate;
             Fire();
         }
 
         // Create a Vector3 variable, and assign X and Z to feature our horizontal and vertical float variables above
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        rb.AddForce(movement*cameraSpeed);
+        //2 Different methods to move the camera
+
+        //rb.AddForce(movement*cameraSpeed);
+
+        rb.velocity = movement * cameraSpeed;
     }
 
     void Fire()
@@ -49,10 +63,10 @@ public class SquisherController : MonoBehaviour {
             ballSpawn.rotation);
 
         // Add velocity to the bullet
-        ball.GetComponent<Rigidbody>().velocity = ball.transform.up * -6;
+        ball.GetComponent<Rigidbody>().velocity = ball.transform.up * -10;
 
         // Destroy the bullet after 2 seconds
-        Destroy(ball, 2.0f);
+        Destroy(ball, 3.0f);
     }
 
 }
