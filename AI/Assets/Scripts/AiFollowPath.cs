@@ -28,21 +28,10 @@ public class AiFollowPath : MonoBehaviour {
     {
         if (other.gameObject.tag == "PathMarker")
         {
-            //Target = other.gameObject.GetComponent<PathMarker>();
-            //Target = other.gameObject.GetComponent<PathMarker>().NextMarker;
-            Target = Target.NextMarker;
+            Target = other.gameObject.GetComponent<PathMarker>().NextMarker;
+            //Target = Target.NextMarker; // Does the same
             Move();
         }
     }
-    
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "PathMarker")
-        {
-            Target = Target.NextMarker;
-            Move();
-        }
-    }
-
 
 }
