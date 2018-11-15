@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 606107190}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dd0f400905d4394583ef8527ef490b2, type: 3}
   m_Name: 
@@ -1547,13 +1547,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 975249631}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dd0f400905d4394583ef8527ef490b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 1313333892}
-  estado: 1
+  estado: 0
   agent: {fileID: 975249637}
   enemies: []
 --- !u!195 &975249637
@@ -1910,7 +1910,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1169836510}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dd0f400905d4394583ef8527ef490b2, type: 3}
   m_Name: 

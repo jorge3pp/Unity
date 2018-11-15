@@ -16,20 +16,14 @@ public class AiController : MonoBehaviour {
     public PathMarker Target;
     public states estado;
     public NavMeshAgent agent;
-    public List<NavMeshAgent> enemies;
+    public GameObject[] enemies;
 
     // Use this for initialization
     void Start () {
         agent = GetComponent<NavMeshAgent>();
-        var agents = GetComponents<NavMeshAgent>();
-        foreach(NavMeshAgent agent in agents)
-        {
-            if (agent.tag == "Enemy")
-            {
-                enemies.Add(agent);
-            }
-        }
-	}
+
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    }
 	
     private void Patrol()
     {
@@ -45,9 +39,9 @@ public class AiController : MonoBehaviour {
 
     private void MoveToTarget()
     {
-        Debug.Log("Enemies: " + enemies.Count);
-        NavMeshAgent closestEnemy = enemies[0];
-        foreach(NavMeshAgent enemy in enemies)
+        Debug.Log("Enemies: " + enemies.Length);
+        GameObject closestEnemy = enemies[0];
+        foreach (GameObject enemy in enemies)
         {
             if(Vector3.Distance(agent.transform.position, enemy.transform.position) < Vector3.Distance(agent.transform.position, closestEnemy.transform.position))
             {
