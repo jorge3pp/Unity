@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     public Text countText;
 	public Text winText;
     public Text timeText;
+    public Canvas gameOver;
 
     // Create private references to the rigidbody component on the player, and the count of pick up objects picked up so far
     private Rigidbody rb;
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour {
 	{
 		// Assign the Rigidbody component to our private rb variable
 		rb = GetComponent<Rigidbody>();
+
+        gameOver.gameObject.SetActive(false);
 
 		// Set the count to zero 
 		count = 0;
@@ -77,6 +80,7 @@ public class PlayerController : MonoBehaviour {
             winText.text = "You Lost!";
             float tiempo = Time.realtimeSinceStartup;
             timeText.text = "Time: " + tiempo + " seconds";
+            gameOver.gameObject.SetActive(true);
         }
     }
 

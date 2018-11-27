@@ -46,6 +46,7 @@ public class GameInstance : MonoBehaviour {
             File.Delete(savePath);
         }
     }
+
     public bool DoesProfileExist()
     {
         if (File.Exists(savePath))

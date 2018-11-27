@@ -64,18 +64,20 @@
     <Compile Include="Assets\RPG Food &amp; Drinks Pack\Assets\Scripts\Consumer.cs" />
     <Compile Include="Assets\RPG Food &amp; Drinks Pack\Assets\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\GameOverController.cs" />
+    <Compile Include="Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Rotator1.cs" />
     <Compile Include="Assets\Scripts\SquisherCameraController.cs" />
     <Compile Include="Assets\Scripts\SquisherController.cs" />
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>C:/Users/S00184395/Documents/GitHub/Unity/Project3DGEP/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
       <HintPath>C:/Users/S00184395/Documents/GitHub/Unity/Project3DGEP/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/S00184395/Documents/GitHub/Unity/Project3DGEP/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/S00184395/Documents/GitHub/Unity/Project3DGEP/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
