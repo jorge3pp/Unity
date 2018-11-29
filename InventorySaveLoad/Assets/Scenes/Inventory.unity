@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 922342556}
   - component: {fileID: 922342555}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: GameInstance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,14 +440,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UserProfile:
-    Username: 
+    Username: Jorge
     Stats:
-      Attack: 0
-      Defence: 0
-      Health: 0
-      Stamina: 0
-    Inventory: []
-  savePath: 
+      Attack: 1
+      Defence: 1
+      Health: 10
+      Stamina: 5
+    Inventory:
+    - ID: 1
+      Quantity: 1
+      Name: Boots
+      Description: Shoes
+      Value: 12
+      Weight: 3
+      Rarity: 0
+  savePath: jorge
 --- !u!4 &922342556
 Transform:
   m_ObjectHideFlags: 0

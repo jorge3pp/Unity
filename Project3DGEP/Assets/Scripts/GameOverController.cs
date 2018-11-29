@@ -15,7 +15,6 @@ public class GameOverController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
         btnPlayAgain.onClick.AddListener(StartGame);
         btnQuit.onClick.AddListener(QuitGame);
     }
@@ -28,7 +27,8 @@ public class GameOverController : MonoBehaviour {
 
     private void StartGame()
     {
-        SceneManager.LoadScene("Game");
         gameOver.gameObject.SetActive(false);
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Game");
     }
 }

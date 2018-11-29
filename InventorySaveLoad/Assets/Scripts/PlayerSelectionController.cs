@@ -52,6 +52,9 @@ public class PlayerSelectionController : MonoBehaviour {
             case "Container":
                 SelectedObject.GetComponent<Container>().Toggle();
                 break;
+            case "Door":
+                SelectedObject.GetComponent<Container>().Toggle();
+                break;
         }
 
     }

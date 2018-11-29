@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate ()
 	{
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+        var z = Input.GetAxis("Vertical") * Time.deltaTime * speed;
 
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, z);
@@ -64,14 +64,8 @@ public class PlayerController : MonoBehaviour {
 			SetCountText ();
         }
 
-        if (other.gameObject.CompareTag("Ball"))
-        {
-            // Set the text value of our 'winText'
-            winText.text = "You Lost!";
-            float tiempo = Time.realtimeSinceStartup;
-            timeText.text = "Time: " + tiempo + " seconds";
-        }
     }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ball"))
@@ -81,6 +75,7 @@ public class PlayerController : MonoBehaviour {
             float tiempo = Time.realtimeSinceStartup;
             timeText.text = "Time: " + tiempo + " seconds";
             gameOver.gameObject.SetActive(true);
+            //Time.timeScale = 0;
         }
     }
 
